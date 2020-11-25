@@ -29,13 +29,13 @@ down.src = "audio/down.mp3";
 let snake = [];
 snake[0] = {
   x: 9 * box,
-  y: 10 * box
+  y: 10 * box,
 };
 
 //create food
 let food = {
   x: Math.floor(Math.random() * 17 + 1) * box,
-  y: Math.floor(Math.random() * 15 + 3) * box
+  y: Math.floor(Math.random() * 15 + 3) * box,
 };
 
 //score variable
@@ -70,8 +70,6 @@ function collision(head, array) {
   return false;
 }
 
-
-
 //draw everything to the canvas
 function draw() {
   ctx.drawImage(ground, 0, 0);
@@ -100,7 +98,7 @@ function draw() {
 
     food = {
       x: Math.floor(Math.random() * 17 + 1) * box,
-      y: Math.floor(Math.random() * 15 + 3) * box
+      y: Math.floor(Math.random() * 15 + 3) * box,
     };
     //dont remove the tail
   } else {
@@ -109,7 +107,7 @@ function draw() {
   //add new head
   let newHead = {
     x: snakeX,
-    y: snakeY
+    y: snakeY,
   };
   //game over
   if (
@@ -121,20 +119,20 @@ function draw() {
   ) {
     clearInterval(game);
     let message = "GAME OVER";
-    ctx.fillStyle="black"
+    ctx.fillStyle = "black";
     ctx.fillText(message, 5 * box, 8 * box);
     dead.play();
-    setTimeout(loadAgain,2000)
+    setTimeout(loadAgain, 2000);
   }
- 
+
   snake.unshift(newHead);
 
   ctx.fillStyle = "white";
   ctx.font = "45px Changa one";
   ctx.fillText(score, 2 * box, 1.6 * box);
 }
-function loadAgain(){
-  window.location.reload();
+function loadAgain() {
+  window.location.reload(true);
 }
 
 //calling draw function every 100ms
