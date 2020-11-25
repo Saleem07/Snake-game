@@ -132,7 +132,7 @@ function draw() {
   ctx.fillText(score, 2 * box, 1.6 * box);
 }
 function loadAgain() {
-  window.location.reload(true);
+  window.location.reload();
 }
 
 //calling draw function every 100ms
